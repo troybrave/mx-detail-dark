@@ -1359,6 +1359,9 @@ p { margin-bottom: 1rem; }
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
+.form-row-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
 /* Honeypot */
 .hp-field { display: none !important; }
 
@@ -1479,7 +1482,8 @@ a, button, .btn, .pkg-header, .nav-toggle {
   .pricing-grid-4 { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .coating-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .location-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
+  .form-row,
+  .form-row-3 { grid-template-columns: 1fr; }
 
   .footer-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -1618,12 +1622,26 @@ a, button, .btn, .pkg-header, .nav-toggle {
   .pricing-price { font-size: 2rem; }
   .pricing-features li { font-size: 0.85rem; padding: 6px 0; }
 
-  /* Contact form */
+  /* Contact form — mobile optimized */
   .form-group input,
   .form-group select,
   .form-group textarea {
     padding: 14px 16px;
     font-size: 16px; /* Prevents iOS zoom on focus */
+    border-radius: 8px;
+    -webkit-appearance: none;
+  }
+  .form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234a5568' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+  .form-group label {
+    font-size: 0.8rem;
+  }
+  .contact-form {
+    margin-top: 32px !important;
   }
 
   /* Location cards */
