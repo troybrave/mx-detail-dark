@@ -22,6 +22,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
 </head>
 <body>
 
@@ -79,366 +80,397 @@
       </div>
     </section>
 
-    <!-- ═══ Diagonal Divider ═══ -->
-    <div class="divider" aria-hidden="true">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><polygon points="0,60 1440,0 1440,60" fill="#0d2137"/></svg>
+    <!-- ═══ Angular Divider ═══ -->
+    <div class="divider-angular" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <line x1="0" y1="78" x2="1440" y2="15" stroke="rgba(0,124,186,0.3)" stroke-width="1"/>
+        <line x1="0" y1="80" x2="1440" y2="35" stroke="rgba(0,124,186,0.15)" stroke-width="0.5"/>
+        <line x1="0" y1="60" x2="1440" y2="5" stroke="rgba(0,124,186,0.08)" stroke-width="0.5"/>
+      </svg>
     </div>
 
-    <!-- ═══ Packages — Accordion Layout ═══ -->
+    <!-- ═══ Packages — Visible Card Layout ═══ -->
     <section class="section section-packages" aria-label="Detailing packages">
       <div class="container">
         <div class="text-center" style="margin-bottom: var(--space-lg);">
           <span class="section-badge">Our Packages</span>
           <h2>Detailing Packages &amp; Pricing</h2>
           <div class="section-divider"></div>
+          <p class="pkg-swipe-hint">Swipe to compare packages</p>
         </div>
+
+        <!-- ── Category Selector Pills ── -->
+        <nav class="pkg-nav" aria-label="Package categories">
+          <a href="#exterior" class="pkg-pill active">Exterior</a>
+          <a href="#interior" class="pkg-pill">Interior</a>
+          <a href="#full-detail" class="pkg-pill">Full Detail</a>
+          <a href="#specialty" class="pkg-pill">Specialty</a>
+        </nav>
 
         <!-- ── EXTERIOR PACKAGES ── -->
         <div class="pkg-category fade-up" id="exterior">
           <h3 class="pkg-category-title">Exterior Packages</h3>
+          <div class="pkg-scroll-track">
+            <div class="pkg-card-row">
 
-          <!-- Express Wash -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Express Wash</span>
+              <!-- Express Wash -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Tier 1</span>
+                  <h4 class="pkg-card-name">Express Wash</h4>
+                  <div class="pkg-card-price">from <strong>$50</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <ul class="pkg-card-features">
+                    <li>Hand Wash</li>
+                    <li>Bugs &amp; Tar Safely Removed</li>
+                    <li>Micro-Fiber Dry to Prevent Swirls</li>
+                    <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
+                    <li>Door Jams Cleaned</li>
+                    <li>Full Vacuum</li>
+                    <li>Dusting with Soft Detail Brush</li>
+                    <li>Dashboard &amp; Console Cleaned</li>
+                    <li>Windows Cleaned</li>
+                    <li>Spray Wax to Add Gloss</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$50</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$60</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$65</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
-              <span class="pkg-starting-price">from $50</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Hand Wash</li>
-                  <li>Bugs and Tar Safely Removed</li>
-                  <li>Micro-Fiber Dry to Prevent Swirls in Paint</li>
-                  <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
-                  <li>Door Jams Cleaned</li>
-                  <li>Full Vacuum</li>
-                  <li>Dusting with Soft Detail Brush</li>
-                  <li>Dashboard &amp; Center Console Cleaned</li>
-                  <li>Windows Cleaned</li>
-                  <li>Spray Wax to Add Gloss</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$50</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$60</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$65</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+
+              <!-- Basic Protect + Enhance -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Tier 2</span>
+                  <h4 class="pkg-card-name">Protect + Enhance</h4>
+                  <div class="pkg-card-price">from <strong>$59</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <ul class="pkg-card-features">
+                    <li>Hand Wash</li>
+                    <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
+                    <li>Wheel Wells Cleaned</li>
+                    <li class="pkg-feature-highlight">Gtechniq Ceramic Spray Sealant — Water Beading, Dirt Repelling, Sun Protection (2–3 Months)</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$59</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$69</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$79</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
+
+              <!-- Gloss + Protect Exterior Detail -->
+              <div class="pkg-card pkg-card-popular">
+                <div class="pkg-popular-badge">Most Popular</div>
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Tier 3</span>
+                  <h4 class="pkg-card-name">Gloss + Protect</h4>
+                  <div class="pkg-card-price">from <strong>$109</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <ul class="pkg-card-features">
+                    <li class="pkg-feature-highlight">Premium Wool Mitt Hand Wash</li>
+                    <li class="pkg-feature-highlight">Clay Compound — Removes Contaminates, Silky Smooth</li>
+                    <li>Microfiber Dry to Prevent Swirl Marks</li>
+                    <li class="pkg-feature-highlight">One-Step Sealant via Dual Action Polisher — Improved Gloss &amp; Shine</li>
+                    <li class="pkg-feature-highlight">Ceramic Wax — Hydrophobic, Repels Water &amp; Dirt, UV Protection (6 Months)</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$109</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$129</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$139</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
+              </div>
+
+              <!-- Most Excellent Signature Detail -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Tier 4 — Signature</span>
+                  <h4 class="pkg-card-name">MX Signature</h4>
+                  <div class="pkg-card-price">from <strong>$249</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <div class="pkg-includes-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Everything in Gloss + Protect, plus:
+                  </div>
+                  <ul class="pkg-card-features">
+                    <li class="pkg-feature-highlight">Cutting Compound — Reconditions Paint, Removes Swirls &amp; Light Oxidization (65–75% Defect Removal)</li>
+                    <li>Outside Windows Fully Cleaned</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$249</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$269</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$289</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
+              </div>
+
             </div>
-          </div>
-
-          <!-- Basic Protect + Enhance -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Basic Protect + Enhance Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $59</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Hand Wash</li>
-                  <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
-                  <li>Wheel Wells Cleaned</li>
-                  <li>Gtechniq Ceramic Spray Sealant Applied (Water Beading, Dirt Repelling, Sun Protection, 2–3 Months)</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$59</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$69</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$79</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Gloss + Protect Exterior Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Gloss + Protect Exterior Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $109</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Hand Wash Using Premium Wool Mitt</li>
-                  <li>Clay Compound (Removes Contaminates; Silky Smooth Again)</li>
-                  <li>Microfiber Dry to Prevent Swirl Marks</li>
-                  <li>One Step Sealant Applied Using Dual Action Polisher (Greatly Improves Gloss and Shine!)</li>
-                  <li>Ceramic Wax Applied (Very Hydrophobic, Repels Water &amp; Dirt, UV Protection, Lasts 6 Months)</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$109</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$129</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$139</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Most Excellent Signature Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Most Excellent Signature Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $249</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Hand Wash Using Premium Wool Mitt</li>
-                  <li>Clay Compound (Removes Contaminates; Silky Smooth Again)</li>
-                  <li>Microfiber Dry to Prevent Swirl Marks</li>
-                  <li>Cutting Compound to Recondition Paint (Removes Swirls, Light Oxidization, 65%–75% Defect Removal) — Dazzling Shine!</li>
-                  <li>Ceramic Wax Applied (Very Hydrophobic, Repels Water &amp; Dirt, UV Protection, Lasts 6 Months)</li>
-                  <li>Outside Windows Fully Cleaned</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$249</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$269</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$289</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exterior showcase image -->
-          <div class="pkg-showcase">
-            <img src="assets/images/gallery-porsche-gt3rs.jpg" alt="Red Porsche GT3 RS with flawless exterior detail" loading="lazy">
           </div>
         </div>
 
         <!-- ── INTERIOR PACKAGES ── -->
         <div class="pkg-category fade-up" id="interior">
           <h3 class="pkg-category-title">Interior Packages</h3>
+          <div class="pkg-scroll-track">
+            <div class="pkg-card-row pkg-card-row--2col">
 
-          <!-- Basic Interior Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Basic Interior Detail</span>
+              <!-- Basic Interior Detail -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Basic</span>
+                  <h4 class="pkg-card-name">Interior Detail</h4>
+                  <div class="pkg-card-price">from <strong>$60</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <ul class="pkg-card-features">
+                    <li>Full Vacuum</li>
+                    <li>Soft Detail Brush Dusting</li>
+                    <li>Crevice Tool Detailed Vacuum</li>
+                    <li>All Seats &amp; Carpets Vacuumed</li>
+                    <li>All Plastic &amp; Panels Cleaned</li>
+                    <li>Deep Crevice Cleaning</li>
+                    <li>UV Protectant Applied (Non-Greasy)</li>
+                    <li>Windows Cleaned</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$60</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$75</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$95</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
-              <span class="pkg-starting-price">from $60</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Full Vacuum</li>
-                  <li>Soft Detail Brush Used for Dusting</li>
-                  <li>Crevice Tools Used for Detailed Vacuum</li>
-                  <li>Vacuum All Seats and Carpets</li>
-                  <li>All Plastic and Panels Cleaned</li>
-                  <li>All Plastic Deep Crevice Cleaned</li>
-                  <li>UV Protectant Applied (Non-Greasy)</li>
-                  <li>Windows Cleaned</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$60</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$75</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$95</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+
+              <!-- Most Excellent Interior Detail -->
+              <div class="pkg-card pkg-card-popular">
+                <div class="pkg-popular-badge">Premium</div>
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">MX Signature</span>
+                  <h4 class="pkg-card-name">Interior Detail</h4>
+                  <div class="pkg-card-price">from <strong>$129</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <div class="pkg-includes-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Everything in Basic Interior, plus:
+                  </div>
+                  <ul class="pkg-card-features">
+                    <li class="pkg-feature-highlight">Deep Crevice Cleaning on All Panels</li>
+                    <li>2-Step Window Cleaning</li>
+                    <li class="pkg-feature-highlight">Leather Deep Cleaned &amp; Conditioned</li>
+                    <li class="pkg-feature-highlight">Cloth Seats Machine Extracted</li>
+                    <li class="pkg-feature-highlight">All Carpets &amp; Mats Machine Extracted</li>
+                    <li>Headliner Cleaned</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$129</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$139</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$159</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
+
             </div>
-          </div>
-
-          <!-- Most Excellent Interior Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Most Excellent Interior Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $129</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Full Vacuum</li>
-                  <li>Full Dusting with Soft Detail Brush</li>
-                  <li>All Plastic and Vinyl Cleaned</li>
-                  <li>Deep Crevice Cleaning on All Panels Using Various Crevice Tools</li>
-                  <li>UV Protectant Applied (Non-Greasy)</li>
-                  <li>2-Step Window Cleaning</li>
-                  <li>Leather Deep Cleaned &amp; Conditioned</li>
-                  <li>Cloth Seats Machine Extracted</li>
-                  <li>All Carpets &amp; Mats Machine Extracted</li>
-                  <li>Headliner Cleaned</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / Sedan</td><td>$129</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$139</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$159</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Interior showcase image -->
-          <div class="pkg-showcase">
-            <img src="assets/images/gallery-red-interior.jpg" alt="Pristine red and black leather interior after detail" loading="lazy">
           </div>
         </div>
 
         <!-- ── FULL DETAIL PACKAGES ── -->
         <div class="pkg-category fade-up" id="full-detail">
           <h3 class="pkg-category-title">Full Detail Packages</h3>
+          <div class="pkg-scroll-track">
+            <div class="pkg-card-row pkg-card-row--2col">
 
-          <!-- The Mini Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">The Mini Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $139</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Full Vacuum</li>
-                  <li>Crevice Tools Used for Detailed Vacuum</li>
-                  <li>All Plastic and Vinyl Cleaned</li>
-                  <li>Deep Crack and Crevice Cleaning</li>
-                  <li>UV Protectant Applied (Non-Greasy)</li>
-                  <li>Windows Cleaned</li>
-                  <li>Hand Wash</li>
-                  <li>Micro-Fiber Dry to Prevent Swirls in Paint</li>
-                  <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
-                  <li>Wheel Wells Cleaned</li>
-                  <li>Gtechniq Ceramic Spray Sealant Applied (Water Beading, Dirt Repelling, Sun Protection, 2–3 Months)</li>
-                  <li>Door Jams Wiped</li>
-                </ul>
-                <div class="pkg-upgrade">
-                  <strong>Upgrade Option:</strong> Add Ceramic Wax for longer protection and shine! High-gloss ceramic wax that repels water &amp; dirt. Lasts 6 months. <strong>+ $40 any size</strong>
+              <!-- The Mini Detail -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Essential</span>
+                  <h4 class="pkg-card-name">The Mini Detail</h4>
+                  <div class="pkg-card-price">from <strong>$139</strong></div>
                 </div>
-                <table class="pkg-prices">
-                  <tr><td>Coupe / 4-Door Sedan</td><td>$139</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$159</td></tr>
-                  <tr><td>Large Truck / SUV / Van</td><td>$169</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-          </div>
-
-          <!-- The Full Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">The Full Detail</span>
-              </div>
-              <span class="pkg-starting-price">from $219</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Full Vacuum</li>
-                  <li>Crevice Tools Used for Detailed Vacuum</li>
-                  <li>All Plastic and Vinyl Cleaned</li>
-                  <li>Deep Crack &amp; Crevice Cleaning</li>
-                  <li>UV Protectant Applied (Non-Greasy)</li>
-                  <li>Windows Cleaned</li>
-                  <li>Leather Deep Cleaned &amp; Conditioned</li>
-                  <li>Cloth Seats Machine Extracted</li>
-                  <li>Carpets &amp; Mats Machine Extracted</li>
-                  <li>Headliner Cleaned</li>
-                  <li>Hand Wash</li>
-                  <li>Micro-Fiber Dry to Prevent Swirls in Paint</li>
-                  <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
-                  <li>Wheel Wells Cleaned</li>
-                  <li>Door Jams Deep Cleaned</li>
-                  <li>Claybar Compound (Removes Contaminates; Silky Smooth Again)</li>
-                  <li>Trim Dressed</li>
-                  <li>Gtechniq Ceramic Spray Sealant Applied (Water Beading, Dirt Repelling, Sun Protection, 2–3 Months)</li>
-                </ul>
-                <div class="pkg-upgrade">
-                  <strong>Upgrade Option:</strong> Add Ceramic Wax for longer protection and shine! High-gloss ceramic wax that repels water &amp; dirt. Lasts 6 months. <strong>+ $40 any size</strong>
+                <div class="pkg-card-body">
+                  <p class="pkg-card-subtitle">Interior + Exterior Combined</p>
+                  <ul class="pkg-card-features">
+                    <li>Full Vacuum &amp; Crevice Tool Detail</li>
+                    <li>All Plastic &amp; Vinyl Cleaned</li>
+                    <li>Deep Crack &amp; Crevice Cleaning</li>
+                    <li>UV Protectant Applied (Non-Greasy)</li>
+                    <li>Windows Cleaned</li>
+                    <li>Hand Wash &amp; Microfiber Dry</li>
+                    <li>Tires &amp; Wheels Cleaned &amp; Dressed</li>
+                    <li>Wheel Wells Cleaned</li>
+                    <li>Door Jams Wiped</li>
+                    <li class="pkg-feature-highlight">Gtechniq Ceramic Spray Sealant (2–3 Months Protection)</li>
+                  </ul>
+                  <div class="pkg-upgrade">
+                    <strong>Upgrade:</strong> Add Ceramic Wax — 6 months of hydrophobic protection. <strong>+$40 any size</strong>
+                  </div>
+                  <table class="pkg-card-prices">
+                    <tr><td>Coupe / Sedan</td><td>$139</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$159</td></tr>
+                    <tr><td>Large Truck / SUV / Van</td><td>$169</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
                 </div>
-                <table class="pkg-prices">
-                  <tr><td>2-Door Coupe</td><td>$219</td></tr>
-                  <tr><td>4-Door Sedan</td><td>$259</td></tr>
-                  <tr><td>Small Truck / SUV</td><td>$309</td></tr>
-                  <tr><td>Large Truck / SUV</td><td>$339</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
-            </div>
-          </div>
 
-          <!-- Full Detail showcase image -->
-          <div class="pkg-showcase">
-            <img src="assets/images/gallery-full-detail.png" alt="Full detail before and after transformation" loading="lazy">
+              <!-- The Full Detail -->
+              <div class="pkg-card pkg-card-popular">
+                <div class="pkg-popular-badge">Best Value</div>
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Complete</span>
+                  <h4 class="pkg-card-name">The Full Detail</h4>
+                  <div class="pkg-card-price">from <strong>$219</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <div class="pkg-includes-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Everything in The Mini Detail, plus:
+                  </div>
+                  <ul class="pkg-card-features">
+                    <li class="pkg-feature-highlight">Leather Deep Cleaned &amp; Conditioned</li>
+                    <li class="pkg-feature-highlight">Cloth Seats Machine Extracted</li>
+                    <li class="pkg-feature-highlight">Carpets &amp; Mats Machine Extracted</li>
+                    <li>Headliner Cleaned</li>
+                    <li>Door Jams Deep Cleaned</li>
+                    <li class="pkg-feature-highlight">Claybar Compound — Silky Smooth Finish</li>
+                    <li>Trim Dressed</li>
+                  </ul>
+                  <div class="pkg-upgrade">
+                    <strong>Upgrade:</strong> Add Ceramic Wax — 6 months of hydrophobic protection. <strong>+$40 any size</strong>
+                  </div>
+                  <table class="pkg-card-prices">
+                    <tr><td>2-Door Coupe</td><td>$219</td></tr>
+                    <tr><td>4-Door Sedan</td><td>$259</td></tr>
+                    <tr><td>Small Truck / SUV</td><td>$309</td></tr>
+                    <tr><td>Large Truck / SUV</td><td>$339</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
         <!-- ── SPECIALTY ── -->
         <div class="pkg-category fade-up" id="specialty">
           <h3 class="pkg-category-title">Specialty</h3>
+          <div class="pkg-scroll-track">
+            <div class="pkg-card-row pkg-card-row--2col">
 
-          <!-- Motorcycle Detail -->
-          <div class="pkg-accordion">
-            <button class="pkg-header" aria-expanded="false">
-              <div class="pkg-header-left">
-                <svg class="pkg-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                <span class="pkg-name">Motorcycle Detail</span>
+              <!-- Motorcycle Detail -->
+              <div class="pkg-card">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Motorcycle</span>
+                  <h4 class="pkg-card-name">Motorcycle Detail</h4>
+                  <div class="pkg-card-price">from <strong>$89</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <ul class="pkg-card-features">
+                    <li>Hand Wash</li>
+                    <li>Motor Degreased &amp; Cleaned</li>
+                    <li>Full Crevice Cleaning</li>
+                    <li>Metal Polish</li>
+                    <li>Seats &amp; Controls UV Protectant Conditioned</li>
+                    <li>Full Wax Sealant Applied</li>
+                  </ul>
+                  <table class="pkg-card-prices">
+                    <tr><td>2 Wheel</td><td>$89</td></tr>
+                    <tr><td>3 Wheel</td><td>$109</td></tr>
+                  </table>
+                  <p class="pkg-disclaimer">* Prices may vary by condition</p>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="book-now.html" class="btn btn-primary btn-glow">Book Now</a>
+                </div>
               </div>
-              <span class="pkg-starting-price">from $89</span>
-            </button>
-            <div class="pkg-body">
-              <div class="pkg-body-inner">
-                <ul class="pkg-features">
-                  <li>Hand Wash</li>
-                  <li>Motor Degreased and Cleaned</li>
-                  <li>Full Crevice Cleaning</li>
-                  <li>Metal Polish</li>
-                  <li>Seats and Controls UV Protectant Conditioned</li>
-                  <li>Full Wax Sealant Applied</li>
-                </ul>
-                <table class="pkg-prices">
-                  <tr><td>2 Wheel</td><td>$89</td></tr>
-                  <tr><td>3 Wheel</td><td>$109</td></tr>
-                </table>
-                <p class="pkg-disclaimer">* Prices may vary depending upon condition</p>
-                <a href="book-now.html" class="btn btn-primary">Book Now</a>
+
+              <!-- Marine & Yacht Detail -->
+              <div class="pkg-card pkg-card-marine">
+                <div class="pkg-card-header">
+                  <span class="pkg-tier-label">Marine</span>
+                  <h4 class="pkg-card-name">Marine &amp; Yacht Detail</h4>
+                  <div class="pkg-card-price"><strong>Custom Quote</strong></div>
+                </div>
+                <div class="pkg-card-body">
+                  <p class="pkg-card-subtitle">Priced by vessel size &amp; condition</p>
+                  <ul class="pkg-card-features">
+                    <li class="pkg-feature-highlight">Full Exterior Wash &amp; Decontamination</li>
+                    <li>Hull Cleaning &amp; Oxidation Removal</li>
+                    <li>Gel Coat Polishing &amp; Restoration</li>
+                    <li>Metal &amp; Chrome Polished</li>
+                    <li>Teak Cleaning &amp; Treatment</li>
+                    <li>Interior Deep Clean &amp; UV Protection</li>
+                    <li class="pkg-feature-highlight">Ceramic Coating Options Available</li>
+                  </ul>
+                  <div class="pkg-custom-note">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Pricing is custom based on vessel square footage, type, and current condition. Contact us for a personalized quote.
+                  </div>
+                </div>
+                <div class="pkg-card-footer">
+                  <a href="contact.html" class="btn btn-primary btn-glow">Request a Quote</a>
+                </div>
               </div>
+
             </div>
           </div>
-
         </div>
 
       </div>
     </section>
+
+    <!-- ═══ Angular Divider ═══ -->
+    <div class="divider-angular" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <line x1="0" y1="10" x2="1440" y2="70" stroke="rgba(0,124,186,0.25)" stroke-width="1"/>
+        <line x1="0" y1="25" x2="1440" y2="75" stroke="rgba(0,124,186,0.12)" stroke-width="0.5"/>
+        <line x1="0" y1="5" x2="1440" y2="50" stroke="rgba(0,124,186,0.06)" stroke-width="0.5"/>
+      </svg>
+    </div>
 
     <!-- ═══ Banner CTA ═══ -->
     <section class="banner-cta" aria-label="Book now">
       <div class="container">
         <h2>Ready for Most Excellent Results?</h2>
         <p>Book your appointment today and experience the difference.</p>
-        <a href="book-now.html" class="btn btn-primary btn-lg">Book Now</a>
+        <a href="book-now.html" class="btn btn-primary btn-lg btn-glow">Book Now</a>
       </div>
     </section>
 
@@ -498,6 +530,44 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+
+  <!-- Package pill nav — active state + scroll spy -->
+  <script>
+  (function () {
+    var pills = document.querySelectorAll('.pkg-pill');
+    var sections = document.querySelectorAll('.pkg-category');
+    if (!pills.length || !sections.length) return;
+
+    // Click handler — smooth scroll + set active
+    pills.forEach(function (pill) {
+      pill.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        var navbar = document.querySelector('.navbar');
+        var offset = navbar ? navbar.offsetHeight + 24 : 24;
+        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        pills.forEach(function (p) { p.classList.remove('active'); });
+        pill.classList.add('active');
+      });
+    });
+
+    // Scroll spy — update active pill on scroll
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          pills.forEach(function (p) {
+            p.classList.toggle('active', p.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+
+    sections.forEach(function (s) { observer.observe(s); });
+  })();
+  </script>
 
 </body>
 </html>

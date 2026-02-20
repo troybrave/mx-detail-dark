@@ -21,7 +21,7 @@
       heroSlides[currentSlide].classList.remove('active');
       currentSlide = (currentSlide + 1) % heroSlides.length;
       heroSlides[currentSlide].classList.add('active');
-    }, 7000); // Cinematic pace — 7 second hold per slide
+    }, 5000); // Change every 5 seconds
   }
 
   // ══════════════════════════════════════
@@ -38,23 +38,6 @@
 
   window.addEventListener('scroll', handleNavScroll, { passive: true });
   handleNavScroll(); // Run on load
-
-  // ══════════════════════════════════════
-  // HERO PARALLAX DEPTH (text floats on scroll)
-  // ══════════════════════════════════════
-  const heroContent = document.querySelector('.hero-content');
-  if (heroContent && !prefersReducedMotion) {
-    window.addEventListener('scroll', function () {
-      var scrollY = window.scrollY;
-      var heroHeight = document.querySelector('.hero').offsetHeight;
-      if (scrollY < heroHeight) {
-        var offset = scrollY * 0.3;
-        var opacity = 1 - (scrollY / heroHeight) * 0.6;
-        heroContent.style.transform = 'translateY(' + offset + 'px)';
-        heroContent.style.opacity = Math.max(opacity, 0);
-      }
-    }, { passive: true });
-  }
 
   // ══════════════════════════════════════
   // HAMBURGER MENU
