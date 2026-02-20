@@ -137,7 +137,10 @@ p { margin-bottom: 1rem; }
   min-height: var(--top-bar-height);
   display: flex;
   align-items: center;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1001;
 }
 .top-bar * {
@@ -192,7 +195,6 @@ p { margin-bottom: 1rem; }
 .navbar.scrolled {
   background: rgba(0,124,186,0.92);
   box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  top: 0;
 }
 .navbar .container {
   display: flex;
@@ -1534,7 +1536,7 @@ a, button, .btn, .pkg-header, .nav-toggle {
 /* Mobile */
 @media (max-width: 480px) {
   .top-bar { display: none; }
-  .navbar { top: 0; }
+  .navbar { top: 0 !important; }
 
   /* Container tighter padding */
   .container { padding: 0 16px; }
