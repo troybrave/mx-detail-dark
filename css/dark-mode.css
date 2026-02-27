@@ -1352,8 +1352,30 @@ p {
     width: 30px;
     height: 30px;
   }
+
+  /* Hero tagline — demote to subtle descriptor, not competing with CTAs */
+  .hero-tagline {
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    animation: none !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.2em !important;
+    color: rgba(255,255,255,0.5) !important;
+    margin-bottom: 28px !important;
+  }
 }
 
 @media (max-width: 480px) {
   .divider-angular { height: 40px; }
+
+  .hero-tagline {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.15em !important;
+    margin-bottom: 24px !important;
+  }
 }
