@@ -881,6 +881,11 @@ p {
   gap: 20px;
   align-items: stretch;
 }
+.pkg-card-row--3col {
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  margin: 0 auto;
+}
 .pkg-card-row--2col {
   grid-template-columns: repeat(2, 1fr);
   max-width: 800px;
@@ -890,6 +895,26 @@ p {
   grid-template-columns: 1fr;
   max-width: 400px;
   margin: 0 auto;
+}
+
+/* Time estimate badge */
+.pkg-time-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  background: rgba(0,124,186,0.06);
+  border: 1px solid rgba(0,124,186,0.15);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--dm-text-muted);
+  letter-spacing: 0.3px;
+}
+.pkg-time-badge svg {
+  flex-shrink: 0;
+  color: var(--color-primary-light);
 }
 
 /* Individual package card */
