@@ -1,0 +1,110 @@
+name: MX Detail SMS billing
+
+on:
+  schedule:
+    # Two off-peak runs make the state machine tolerant of a delayed or dropped cron.
+    - cron: "17 9 * * *"
+      timezone: "America/New_York"
+    - cron: "47 14 * * *"
+      timezone: "America/New_York"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Dry run only unless the repository live-billing lock is enabled"
+        required: true
+        default: "dry-run"
+        type: choice
+        options:
+          - dry-run
+          - live
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: mx-detail-sms-billing
+  cancel-in-progress: false
+
+jobs:
+  bill:
+    name: Reconcile notice and charge state
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DOPPLER_TOKEN: ${{ secrets.DOPPLER_TOKEN }}
+      MX_DETAIL_BILLING_ENABLED: ${{ vars.MX_DETAIL_BILLING_ENABLED }}
+      MX_DETAIL_BILLING_TZ: America/New_York
+      MX_DETAIL_GHL_LOCATION_ID: ${{ vars.MX_DETAIL_GHL_LOCATION_ID }}
+      MX_DETAIL_STRIPE_CUSTOMER_ID: ${{ vars.MX_DETAIL_STRIPE_CUSTOMER_ID }}
+      MX_DETAIL_SMS_RATE: ${{ vars.MX_DETAIL_SMS_RATE }}
+      MX_DETAIL_BILLING_BOOTSTRAP_START: ${{ vars.MX_DETAIL_BILLING_BOOTSTRAP_START }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+
+      - name: Install Doppler CLI
+        uses: DopplerHQ/cli-action@4819d808ab99e5cde19a0637a16536a4038fad73 # v4
+
+      - name: Run unit tests
+        run: node --test scripts/mx-detail-weekly-sms-billing.test.mjs
+
+      - name: Select guarded execution mode
+        id: execution
+        shell: bash
+        run: |
+          mode="--dry-run"
+          if [[ "$GITHUB_EVENT_NAME" == "schedule" && "$MX_DETAIL_BILLING_ENABLED" == "true" ]]; then
+            mode="--live"
+          fi
+          if [[ "$GITHUB_EVENT_NAME" == "workflow_dispatch" && "${{ inputs.mode }}" == "live" ]]; then
+            if [[ "$MX_DETAIL_BILLING_ENABLED" != "true" ]]; then
+              echo "Live billing is locked by MX_DETAIL_BILLING_ENABLED."
+              exit 1
+            fi
+            mode="--live"
+          fi
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+
+      - name: Reconcile billing state
+        run: >-
+          doppler run --
+          node scripts/mx-detail-weekly-sms-billing.mjs
+          cloud ${{ steps.execution.outputs.mode }}
+
+      - name: Open or update failure alert
+        if: failure()
+        uses: actions/github-script@f28e40c7f34bde8b3046d885e986cb6290c5673b # v7
+        with:
+          script: |
+            const title = "MX Detail SMS billing needs attention";
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = `The cloud billing workflow failed. Review the run before retrying: ${runUrl}`;
+            const issues = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              per_page: 100,
+            });
+            const existing = issues.find((issue) => issue.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
